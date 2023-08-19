@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
             useMaterial3: true,
           ),
-          home: Welcome(),
+          home: const Welcome(),
           routes: {
             "myhompage": (context) =>
                 const MyHomePage(title: 'Flutter Demo Home Page'),
