@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.white,
               elevation: 0,
             ),
-            // colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue)
+            // colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
             useMaterial3: true,
           ),
           home: Welcome(),
