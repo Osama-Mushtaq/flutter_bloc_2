@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 AppBar myAppBar1() {
   return AppBar(
     bottom: PreferredSize(
+      preferredSize: const Size.fromHeight(1),
       child: Container(
         color: Colors.grey.withOpacity(0.5),
         height: 1,
       ),
-      preferredSize: const Size.fromHeight(1),
     ),
     title: Text(
       "Log in",
