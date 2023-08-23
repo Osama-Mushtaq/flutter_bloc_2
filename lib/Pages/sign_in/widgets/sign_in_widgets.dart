@@ -7,13 +7,17 @@ AppBar myAppBar1() {
       preferredSize: const Size.fromHeight(1),
       child: Container(
         color: Colors.grey.withOpacity(0.5),
-        height: 1,
+        height: 0.5,
       ),
     ),
-    title: Text(
-      "Log in",
-      style: TextStyle(
-          color: Colors.black, fontSize: 16.sp, fontWeight: FontWeight.normal),
+    title: Center(
+      child: Text(
+        "Log in",
+        style: TextStyle(
+            color: Colors.black,
+            fontSize: 16.sp,
+            fontWeight: FontWeight.normal),
+      ),
     ),
   );
 }
@@ -148,10 +152,10 @@ Widget signInsignUpButton(String btnText, String btnType) {
           ),
         ],
       ),
-      child: const Center(
+      child: Center(
         child: Text(
-          "",
-          style: TextStyle(
+          btnText,
+          style: const TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.normal,
             color: Colors.white,
