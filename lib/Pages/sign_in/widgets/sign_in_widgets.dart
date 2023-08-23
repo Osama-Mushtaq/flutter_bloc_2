@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_2/common/values/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 AppBar myAppBar1() {
@@ -6,7 +7,7 @@ AppBar myAppBar1() {
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(1),
       child: Container(
-        color: Colors.grey.withOpacity(0.5),
+        color: AppColors.primarySecondaryBackground,
         height: 0.5,
       ),
     ),
@@ -14,7 +15,7 @@ AppBar myAppBar1() {
       child: Text(
         "Log in",
         style: TextStyle(
-            color: Colors.black,
+            color: AppColors.primaryText,
             fontSize: 16.sp,
             fontWeight: FontWeight.normal),
       ),
@@ -68,7 +69,7 @@ Widget signInFields(String iconName, String hintText, String textType) {
     margin: EdgeInsets.only(bottom: 25.h),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(15.w)),
-      border: Border.all(color: Colors.black),
+      border: Border.all(color: AppColors.primaryFourElementText),
     ),
     child: Row(
       children: [
@@ -94,11 +95,11 @@ Widget signInFields(String iconName, String hintText, String textType) {
               focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.transparent),
               ),
-              hintStyle: TextStyle(
-                  color: Colors.grey.withOpacity(0.5), fontSize: 14.5),
+              hintStyle: const TextStyle(
+                  color: AppColors.primarySecondaryElementText, fontSize: 14.5),
             ),
             style: TextStyle(
-              color: Colors.black,
+              color: AppColors.primaryText,
               fontFamily: "Avenir",
               fontWeight: FontWeight.normal,
               fontSize: 14.sp,
@@ -122,11 +123,11 @@ Widget forgotPassword() {
       child: Text(
         "Forgot Password?",
         style: TextStyle(
-            color: Colors.black,
+            color: AppColors.primaryText,
             fontSize: 12.sp,
             fontWeight: FontWeight.normal,
             decoration: TextDecoration.underline,
-            decorationColor: Colors.blue),
+            decorationColor: AppColors.primaryText),
       ),
     ),
   );
@@ -141,8 +142,14 @@ Widget signInsignUpButton(String btnText, String btnType) {
       margin: EdgeInsets.only(
           top: btnType == "login" ? 30.h : 20.h, left: 25.w, right: 25.w),
       decoration: BoxDecoration(
-        color: Colors.blue,
+        color: btnType == "login"
+            ? AppColors.primaryElement
+            : AppColors.primaryBackground,
         borderRadius: BorderRadius.circular(15.w),
+        border: Border.all(
+            color: btnType == "login"
+                ? Colors.transparent
+                : AppColors.primaryFourElementText),
         boxShadow: [
           BoxShadow(
             spreadRadius: 1,
@@ -155,10 +162,12 @@ Widget signInsignUpButton(String btnText, String btnType) {
       child: Center(
         child: Text(
           btnText,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.normal,
-            color: Colors.white,
+            color: btnType == "login"
+                ? AppColors.primaryBackground
+                : AppColors.primaryText,
           ),
         ),
       ),

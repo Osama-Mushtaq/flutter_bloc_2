@@ -10,6 +10,8 @@ import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_states.dart';
 //import 'package:flutter_bloc_2/main.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../common/values/colors.dart';
+
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
 
@@ -55,8 +57,8 @@ class _WelcomeState extends State<Welcome> {
                   dotsCount: 3,
                   mainAxisAlignment: MainAxisAlignment.center,
                   decorator: DotsDecorator(
-                    color: Colors.grey,
-                    activeColor: Colors.blue,
+                    color: AppColors.primaryThreeElementText,
+                    activeColor: AppColors.primaryElement,
                     size: Size.square(8),
                     activeSize: Size(20, 8),
                     activeShape: RoundedRectangleBorder(
@@ -87,7 +89,7 @@ class _WelcomeState extends State<Welcome> {
         Text(
           title,
           style: TextStyle(
-              color: Colors.black,
+              color: AppColors.primaryText,
               fontSize: 24.sp,
               fontWeight: FontWeight.normal),
         ),
@@ -112,7 +114,7 @@ class _WelcomeState extends State<Welcome> {
             width: 325.w,
             height: 50.h,
             decoration: BoxDecoration(
-              color: Colors.blueAccent,
+              color: AppColors.primaryElement,
               borderRadius: BorderRadius.all(Radius.circular(15.w)),
               boxShadow: [
                 BoxShadow(
