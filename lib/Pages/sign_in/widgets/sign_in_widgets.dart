@@ -8,7 +8,7 @@ AppBar myAppBar1() {
       preferredSize: const Size.fromHeight(1),
       child: Container(
         color: AppColors.primarySecondaryBackground,
-        height: 0.5,
+        height: 1,
       ),
     ),
     title: Center(
@@ -63,7 +63,8 @@ Widget reusabletext(String text) {
   );
 }
 
-Widget signInFields(String iconName, String hintText, String textType) {
+Widget signInFields(String iconName, String hintText, String textType,
+    void Function(String value)? func) {
   return Container(
     width: 325.w,
     height: 50.h,
@@ -80,10 +81,11 @@ Widget signInFields(String iconName, String hintText, String textType) {
           margin: EdgeInsets.only(left: 15.w),
           child: Image.asset("assets/icons/$iconName.png"),
         ),
-        Container(
+        SizedBox(
           width: 270.w,
           height: 50.h,
           child: TextField(
+            onChanged: (value) => func!(value),
             keyboardType: TextInputType.multiline,
             decoration: InputDecoration(
               hintText: hintText,
@@ -118,7 +120,7 @@ Widget forgotPassword() {
   return Container(
     width: 260.w,
     height: 44.h,
-    margin: EdgeInsets.only(top: 20.h, bottom: 20.h, left: 2.w),
+    margin: EdgeInsets.only(top: 20.h, bottom: 20.h),
     child: GestureDetector(
       onTap: () {},
       child: Text(
@@ -141,7 +143,7 @@ Widget signInsignUpButton(String btnText, String btnType) {
       width: 325.w,
       height: 50.h,
       margin: EdgeInsets.only(
-          top: btnType == "login" ? 30.h : 20.h, left: 25.w, right: 25.w),
+          top: btnType == "login" ? 25.h : 20.h, left: 25.w, right: 25.w),
       decoration: BoxDecoration(
         color: btnType == "login"
             ? AppColors.primaryElement
