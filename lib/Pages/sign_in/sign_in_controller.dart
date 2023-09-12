@@ -28,7 +28,15 @@ class SignInController {
           var user = credential.user;
           if (user != null) {
           } else {}
-        } catch (e) {}
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'user-not-found') {
+            print('No user found for that email.');
+          } else if (e.code == 'wrong-password') {
+            print('Wrong password provided for that user.');
+          } else if (e.code == 'invalid-email') {
+            print('invalid email');
+          }
+        }
       }
     } catch (e) {}
   }

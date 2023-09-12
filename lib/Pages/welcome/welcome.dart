@@ -2,14 +2,11 @@
 
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_blocs.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_events.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_states.dart';
-//import 'package:flutter_bloc_2/main.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../common/values/colors.dart';
 
 class Welcome extends StatefulWidget {
