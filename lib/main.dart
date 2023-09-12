@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_2/Pages/bloc_providers.dart';
 import 'package:flutter_bloc_2/Pages/sign_in/bloc/signin_blocs.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_blocs.dart';
 import 'package:flutter_bloc_2/Pages/welcome/welcome.dart';
@@ -22,17 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          lazy: false,
-          create: (context) => WelcomeBloc(),
-        ),
-        BlocProvider(
-          lazy: false,
-          create: (context) => AppBlocs(),
-        ),
-        BlocProvider(create: (context) => SignInBloc())
-      ],
+      providers: AppBlocProviders.allBlocProviders,
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
