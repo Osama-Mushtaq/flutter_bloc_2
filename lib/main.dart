@@ -2,10 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_2/Pages/bloc_providers.dart';
+import 'package:flutter_bloc_2/Pages/sign_up/sign_up.dart';
 import 'package:flutter_bloc_2/Pages/welcome/welcome.dart';
 import 'package:flutter_bloc_2/app_blocs.dart';
 import 'package:flutter_bloc_2/app_events.dart';
 import 'package:flutter_bloc_2/app_states.dart';
+import 'package:flutter_bloc_2/common/values/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Pages/sign_in/sign_in.dart';
 
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
+              iconTheme: IconThemeData(color: AppColors.primaryText),
               backgroundColor: Colors.white,
               elevation: 0,
             ),
@@ -39,6 +42,7 @@ class MyApp extends StatelessWidget {
             "myhompage": (context) =>
                 const MyHomePage(title: 'Flutter Demo Home Page'),
             "signIn": (context) => const SignIn(),
+            "signUp": (context) => const SignUp(),
           },
           //*const MyHomePage(title: 'Flutter Demo Home Page'),
         ),
