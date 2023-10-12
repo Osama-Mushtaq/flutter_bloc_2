@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_2/Pages/application/application_pages.dart';
 import 'package:flutter_bloc_2/Pages/bloc_providers.dart';
 import 'package:flutter_bloc_2/Pages/sign_up/sign_up.dart';
 import 'package:flutter_bloc_2/Pages/welcome/welcome.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
             useMaterial3: true,
           ),
-          home: const Welcome(),
+          home: const ApplicationPage(),
           routes: {
             "myhompage": (context) =>
                 const MyHomePage(title: 'Flutter Demo Home Page'),
