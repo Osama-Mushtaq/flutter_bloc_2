@@ -40,6 +40,8 @@ class SignInController {
 
           var user = credential.user;
           if (user != null) {
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("/application", (route) => false);
           } else {
             toastInfo(msg: "You are not a user of this app");
             return;
