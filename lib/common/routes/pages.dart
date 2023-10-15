@@ -5,6 +5,7 @@ import 'package:flutter_bloc_2/Pages/application/bloc/app_blocs.dart';
 import 'package:flutter_bloc_2/Pages/sign_in/bloc/signin_blocs.dart';
 import 'package:flutter_bloc_2/Pages/sign_in/sign_in.dart';
 import 'package:flutter_bloc_2/Pages/sign_up/bloc/signup_blocs.dart';
+import 'package:flutter_bloc_2/Pages/sign_up/sign_up.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_blocs.dart';
 import 'package:flutter_bloc_2/Pages/welcome/welcome.dart';
 import 'package:flutter_bloc_2/common/routes/names.dart';
@@ -18,15 +19,15 @@ class AppPages {
           bloc: BlocProvider(create: (_) => WelcomeBloc())),
       PageEntity(
           route: AppRoutes.SIGNIN,
-          page: const Welcome(),
+          page: const SignIn(),
           bloc: BlocProvider(create: (_) => SignInBloc())),
       PageEntity(
           route: AppRoutes.SIGNUP,
-          page: const ApplicationPage(),
+          page: const SignUp(),
           bloc: BlocProvider(create: (_) => SignUpBlocs())),
       PageEntity(
           route: AppRoutes.APPLICATION,
-          page: const Welcome(),
+          page: const ApplicationPage(),
           bloc: BlocProvider(create: (_) => AppBlocs())),
     ];
   }

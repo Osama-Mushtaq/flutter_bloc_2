@@ -28,18 +28,9 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.white,
               elevation: 0,
             ),
-            // colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
             useMaterial3: true,
           ),
-          //home: const ApplicationPage(),
           onGenerateRoute: AppPages.GenerateRouteSettings,
-          // routes: {
-          //   "myhompage": (context) =>
-          //       const MyHomePage(title: 'Flutter Demo Home Page'),
-          //   "signIn": (context) => const SignIn(),
-          //   "signUp": (context) => const SignUp(),
-          // },
-          //*const MyHomePage(title: 'Flutter Demo Home Page'),
         ),
       ),
     );

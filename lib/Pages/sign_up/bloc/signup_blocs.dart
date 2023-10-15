@@ -11,6 +11,7 @@ class SignUpBlocs extends Bloc<SignUpEvent, SignUpStates> {
   }
 
   void _userNameEvent(UserNameEvent event, Emitter<SignUpStates> emit) {
+    print("${event.userName}");
     emit(state.copyWith(username: event.userName));
   }
 

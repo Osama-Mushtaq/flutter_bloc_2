@@ -5,7 +5,7 @@ import 'package:flutter_bloc_2/Pages/application/bloc/app_events.dart';
 class AppBlocs extends Bloc<AppEvent, AppStates> {
   AppBlocs() : super(const AppStates()) {
     on<TriggerAppEvent>((event, emit) {
-      emit(AppStates(index: 0));
+      emit(AppStates(index: event.index));
     });
   }
 }

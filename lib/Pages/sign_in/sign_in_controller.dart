@@ -31,9 +31,11 @@ class SignInController {
                   email: emailaddress, password: password);
           if (credential.user == null) {
             toastInfo(msg: "You don't exist");
+            await credential.user!.reload();
             return;
           }
-          if (credential.user!.emailVerified) {
+
+          if (!credential.user!.emailVerified) {
             toastInfo(msg: "You need to verify your email address");
             return;
           }

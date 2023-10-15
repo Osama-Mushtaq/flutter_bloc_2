@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_2/Pages/common_widgets.dart';
 import 'package:flutter_bloc_2/Pages/sign_up/bloc/signup_blocs.dart';
+import 'package:flutter_bloc_2/Pages/sign_up/bloc/signup_events.dart';
 import 'package:flutter_bloc_2/Pages/sign_up/bloc/signup_states.dart';
 import 'package:flutter_bloc_2/Pages/sign_up/sign_up_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,6 +38,7 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(height: 2.h),
                         signInFields("user", "Enter your username", "name",
                             (value) {
+                          context.read<SignUpBlocs>().add(UserNameEvent(value));
                           // context
                           //     .read<SignInBloc>()
                           //     .add(EmailEvent(email: value));
@@ -45,14 +47,13 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(height: 2.h),
                         signInFields("user", "Your Email address", "email",
                             (value) {
-                          // context
-                          //     .read<SignInBloc>()
-                          //     .add(EmailEvent(email: value));
+                          context.read<SignUpBlocs>().add(EmailEvent(value));
                         }),
                         reusabletext("Password"),
                         SizedBox(height: 2.h),
                         signInFields("lock", "Your password", "password",
                             (value) {
+                          context.read<SignUpBlocs>().add(PasswordEvent(value));
                           // context
                           //     .read<SignInBloc>()
                           //     .add(PasswordEvent(password: value));
@@ -62,6 +63,9 @@ class _SignUpState extends State<SignUp> {
                         signInFields(
                             "lock", "Confirm your password", "password",
                             (value) {
+                          context
+                              .read<SignUpBlocs>()
+                              .add(ConfirmPasswordEvent(value));
                           // context
                           //     .read<SignInBloc>()
                           //     .add(PasswordEvent(password: value));
@@ -69,7 +73,7 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
                   ),
-                  signInsignUpButton("Login", "signUp", () {
+                  signInsignUpButton("Sign Up", "login", () {
                     // Navigator.of(context).pushNamed("signUp");
                     SignUpController(context: context).handleEmail();
                   }),
