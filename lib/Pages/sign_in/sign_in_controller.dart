@@ -3,7 +3,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_2/common/values/constant.dart';
 import 'package:flutter_bloc_2/common/widgets/flutter_toast.dart';
+import 'package:flutter_bloc_2/global.dart';
 
 import 'bloc/signin_blocs.dart';
 
@@ -42,6 +44,9 @@ class SignInController {
 
           var user = credential.user;
           if (user != null) {
+            Global.storageService
+                .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "12345678");
+
             Navigator.of(context)
                 .pushNamedAndRemoveUntil("/application", (route) => false);
           } else {

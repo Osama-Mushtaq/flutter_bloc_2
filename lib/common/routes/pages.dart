@@ -9,6 +9,7 @@ import 'package:flutter_bloc_2/Pages/sign_up/sign_up.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_blocs.dart';
 import 'package:flutter_bloc_2/Pages/welcome/welcome.dart';
 import 'package:flutter_bloc_2/common/routes/names.dart';
+import 'package:flutter_bloc_2/global.dart';
 
 class AppPages {
   static List<PageEntity> routes() {
@@ -44,10 +45,22 @@ class AppPages {
     if (settings.name != null) {
       var result = routes().where((element) => element.route == settings.name);
       if (result.isNotEmpty) {
-        return MaterialPageRoute(builder: (_) => result.first.page);
+        bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+        if (result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
+          bool isLoggedin = Global.storageService.getIsLoggedIn();
+          if (isLoggedin) {
+            return MaterialPageRoute(
+                builder: (_) => const ApplicationPage(), settings: settings);
+          }
+          return MaterialPageRoute(
+              builder: (_) => const SignIn(), settings: settings);
+        }
+        return MaterialPageRoute(
+            builder: (_) => result.first.page, settings: settings);
       }
     }
-    return MaterialPageRoute(builder: (_) => SignIn(), settings: settings);
+    return MaterialPageRoute(
+        builder: (_) => const SignIn(), settings: settings);
   }
 }
 

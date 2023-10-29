@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_blocs.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_events.dart';
 import 'package:flutter_bloc_2/Pages/welcome/bloc/welcome_states.dart';
+import 'package:flutter_bloc_2/common/values/constant.dart';
+import 'package:flutter_bloc_2/global.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../common/values/colors.dart';
 
@@ -102,6 +104,8 @@ class _WelcomeState extends State<Welcome> {
               //     builder: (context) => MyHomePage(title: "title"),
               //   ),
               // );
+              Global.storageService
+                  .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
               Navigator.of(context)
                   .pushNamedAndRemoveUntil("/sign_in", (route) => false);
             }
