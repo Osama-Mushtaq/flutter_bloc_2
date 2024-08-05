@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo 3',
+          title: 'Flutter Demo 3435435342324',
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
               iconTheme: IconThemeData(color: AppColors.primaryText),
